@@ -1,0 +1,377 @@
+
+<html lang="en">
+
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+      <title>BizPage Bootstrap Template</title>
+      <meta content="" name="description">
+      <meta content="" name="keywords">
+    
+      <!-- Favicons -->
+      <link href="assets/img/favicon.png" rel="icon">
+      <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    
+      <!-- Vendor CSS Files -->
+      <link href="/vendor/animate.css/animate.min.css" rel="stylesheet">
+      <link href="/vendor/aos/aos.css" rel="stylesheet">
+      <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+      <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+      <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    
+      <!-- Template Main CSS File -->
+      <link href="/css/style.css" rel="stylesheet">
+    
+      <script>
+        function populate(s1,s2){
+        var s1 = document.getElementById(s1);
+        var s2 = document.getElementById(s2);
+        s2.innerHTML = "";
+        
+        if(s1.value == "Ibadan"){
+            var optionArray = ["|Select Center...","Lead City|Lead City","Ibadan City Polytechnic|Ibadan City Polytechnic","Havard Center University of Ibadan|Havard Center University of Ibadan", "Multipurpose Hall, Koladaisi University|Multipurpose Hall, Koladaisi University"];
+        } else if(s1.value == "Oyo"){
+            var optionArray = ["|Select Center...","Language Lecture Theatre Federal College of Education, Oyo|Language Lecture Theatre Federal College of Education, Oyo","Main Lecture Hall, Emmanuel Alayande College of Education, Oyo|Main Lecture Hall, Emmanuel Alayande College of Education, Oyo","School of Surveying, Oyo|School of Surveying, Oyo", "Samuel Ajayi Crowther University, Oyo|Samuel Ajayi Crowther University, Oyo"];
+        } else if(s1.value == "Ogbomosho"){
+            var optionArray = ["|Select Center..."];
+        }else if(s1.value == "Ede"){
+            var optionArray = ["|Select Center...","Redeemer University|Redeemer University","Adeleke University|Adeleke University"];
+        }else if(s1.value == "Oshogbo"){
+            var optionArray = ["|Select Center...","Lilian Event Center|Lilian Event Center"];
+        }else if(s1.value == "Ikirun"){
+            var optionArray = ["|Select Center...","School of Science|School of Science"];
+        }else if(s1.value == "Ife"){
+            var optionArray = ["|Select Center...","Obafemi Awolowo University|Obafemi Awolowo University"];
+        }else if(s1.value == "Ilesha"){
+            var optionArray = ["|Select Center...","Federal Government College|Federal Government College","Ilesha Town Hall|Ilesha Town Hall"];
+        }
+
+        for(var option in optionArray){
+            var pair = optionArray[option].split("|");
+            var newOption = document.createElement("option");
+            console.log("value", )
+            newOption.value = pair[0];
+            newOption.innerHTML = pair[1];
+            s2.options.add(newOption);
+        }
+    }
+    
+    
+   
+        
+      </script>
+      <script src="/js/city.js"></script>
+     
+    
+     
+    </head>
+    
+    <body>
+      <header id="header" class="fixed-top d-flex align-items-center ">
+        <div class="container-fluid">
+    
+          <div class="row justify-content-center align-items-center">
+            <div class="col-xl-11 d-flex align-items-center justify-content-between">
+             
+              <h1 class="logo"><a href="/" id="logo1"><img src="/img/feconlogo.png" alt="" class="img-fluid"></a> <a href="/">FECON</a> </h1>
+              <!-- Uncomment below if you prefer to use an image logo -->
+              
+    
+              <nav id="navbar" class="navbar">
+                <ul>
+               
+                  
+                
+                    <li><a class="nav-link scrollto" >{{user.surname}} &nbsp {{user.otherNames}}</a></li>
+                    <li><a class="nav-link scrollto" href="/api/user/logout" ><font style=" padding: 7px; border:rgb(255, 255, 255); border: width 1px; border-style:solid;"> Logout</font></a></li>
+                   
+                  
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+              </nav><!-- .navbar -->
+            </div>
+          </div>
+    
+        </div>
+      </header><!-- End Header -->
+    
+    
+      <section id="contact" style="padding-top: 100px;" >
+            <div class="container" data-aos="fade-down" >
+       
+              <div class="section-header">
+                <h3>REGISTER FOR BISCO</h3>
+            
+               
+              </div>
+            <div style="color: red; background-color: black;"> {{mv}}</div>
+      
+    <div class="form">
+        <form id="regForm"  action="/api/user/register" method="post"  role="form" class="php-email-form">
+          
+    
+          <div class="row">
+            
+            <div class="form-group col-md-6">
+                <label style="padding-bottom:3px;">Full Name</label>
+              <input type="text" name="surname" value="{{user.title}} {{user.surname}} {{user.otherNames}}" class="form-control" readonly required>
+            </div>
+           
+            <div class="form-group col-md-6">
+                <label style="padding-bottom:3px;"> User Id</label>
+                <input type="text" name="otherNames" class="form-control" value="{{user.userId}}" readonly required>
+              </div>
+           
+          </div>
+    
+          <div class="row">
+            
+            <div class="form-group col-md-6">
+                <label style="padding-bottom:3px;">Date of Birth</label>
+                <input type="text" name="surname" value="{{user.dateOfBirth}}" class="form-control" readonly required>
+            </div>
+           
+            <div class="form-group col-md-6">
+                <label style="padding-bottom:3px;">Gender</label>
+                <input type="text" name="surname" value="{{user.gender}}" class="form-control" readonly required>
+
+                  
+              </div>
+           
+          </div>
+    
+          <div class="row">
+            
+          
+            <div class="form-group col-md-6" >
+              <label style="padding-bottom:3px;">Personal Phone number</label>
+              <input type="text" name="phoneNumber" value="{{user.studentPhoneNumber}}" class="form-control" readonly required>
+
+            </div>
+            
+            <div class="form-group col-md-6">
+                <label style="padding-bottom: 3px; "> Email Address</label>
+                <input type="text" name="email" value="{{user.email}}" class="form-control" readonly required>
+            </div>
+          </div>
+    
+            
+          <div class="row">
+            
+          
+            <div class="form-group col-md-6">
+                
+                    <label style="padding-bottom:3px;">Year</label>
+                    <input type="text" name="year" class="form-control"  oninput=myfunction() required>
+
+                </div>
+           
+                <div class="form-group col-md-6">
+                <label style="padding-bottom:3px;">Class Category</label>
+                <input type="text" name="classe" id="classe" value="{{user.classe}}" class="form-control" readonly required>
+              </div>
+           
+        </div>
+    
+        <div class="row">
+    
+    
+        <div class="form-group col-md-4">
+            <label class="control-label">Preferred Exam Location</label>
+            <select onchange="toggleLGA(this);" name="state" id="state" class="form-control" >
+                <option value="" selected="selected">- Select -</option>
+            
+                
+                <option value="Osun">Osun</option>
+                <option value="Oyo">Oyo</option>
+               
+            </select>
+        </div>
+    
+        <div class="form-group col-md-4">
+            <label class="control-label">Preferred Exam City</label>
+            <select name="LGAOfOrigin" id="LGAOfOrigin" class="form-control select-lga"  onchange="populate(this.id, 'center')" required>
+            </select>
+    
+          </div>
+          <div class="form-group col-md-4">
+            <label class="control-label">Center</label>
+            <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" id="center" name="center">
+                  
+            </select>
+    
+           
+          </div>
+         
+         
+    
+          </div>
+          
+          <div class="row"> 
+          <label style="padding:0px;">Select Subjects</label>
+          <hr>
+    
+         
+  
+         
+       
+    
+          <div class="form-group col-md-6" >
+            <label style="padding-bottom:3px;"></label>
+            <input type="text" id="sub1" value="Mathematics" name="subject2" class="form-control" readonly required>
+          </div>
+    
+          <div class="form-group col-md-6">
+           
+            <input type="text" id="sub2" value="English Language" name="subject1" class="form-control" readonly required>
+          </div>
+        
+          </div>
+
+          <div class="row"> 
+          <div class="form-group col-md-4">
+    
+            <select  name="state" id="subject" class="form-control" r>
+    
+            </select>
+        </div>
+        
+        <div class="form-group col-md-4">
+        
+            <select name="LGAOfOrigin" id="subject1" class="form-control" r>
+            </select>
+    
+          </div>
+          <div class="form-group col-md-4">
+            
+            <select class="form-control"  id="subject2" name="center">
+                  
+            </select>
+    
+           
+          </div>
+          </div>
+          <label style="padding:0px;">Select Subjects <i>(for Primary Category Only)</i></label>
+        <hr>
+          <div class="row"> 
+            <div class="form-group col-md-4">
+      
+              <input  name="state" id="subject3" class="form-control" readonly required >
+      
+              
+          </div>
+          
+          <div class="form-group col-md-4">
+          
+              <input name="LGAOfOrigin" id="subject4" class="form-control" readonly required>
+              
+      
+            </div>
+            <div class="form-group col-md-4">
+              
+              <input class="form-control"  id="subject5" name="center" readonly required>
+                    
+              
+    
+             
+            </div>
+            </div>
+
+          <div class="text-center"><button type="submit" >Save</button></div>
+        </form>
+      </div>
+     
+    </div>
+    
+    
+    
+    </section>
+    
+    
+    <script src="/vendor/purecounter/purecounter.js"></script>
+    <script src="/vendor/aos/aos.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/vendor/waypoints/noframework.waypoints.js"></script>
+    
+    
+    <!-- Template Main JS File -->
+    
+    
+    <script>
+ const classed = document.getElementById("classe").value
+
+ if (classed == "Primary Two"){
+            document.getElementById("subject3").value ="Mathematics and Quantitative Reasoning"
+            document.getElementById("subject4").value ="English Studies and Verbal Reasoning"
+            document.getElementById("subject5").value ="Current Affairs, Sciences and Arts"
+            document.getElementById("sub1").value =""
+            document.getElementById("sub2").value =""
+    
+    }
+
+
+ const subject = document.getElementById("subject")
+ const subject1 = document.getElementById("subject1")
+ const subject2 = document.getElementById("subject2")
+
+     console.log("subject1", classed)
+     
+     if (classed == "") {
+            document.getElementById("sub1").value ="English Language"
+            document.getElementById("sub2").value ="Mathematics"
+            var optionArray = ["|Select Subjects...","Biology|Biology","Government|Government","Physics|Physics", "Chemistry|Chemistry", "Geography|Geography", "Literature|Literature", "Accounting|Accounting", "IRK/CRK|IRK/CRK", "Economics|Economics"];
+     }
+     else if (classed == "") {
+        document.getElementById("sub1").value ="English Language"
+        document.getElementById("sub2").value ="Mathematics"
+        var optionArray = ["|Select Subjects...","Basic Technology|Basic Technology","Basic Science|Basic Science","Agricultural Science|Agricultural Science", "Computer Science|Computer Science", "Physical and Health Education|Physical and Health Education", "Social Studies|Social Studies", "Civic Education|Civic Education", "IRK/CRK|IRK/CRK","Cultural and Creative Art (C.C.A)|Cultural and Creative Art (C.C.A)", "Home Economics|Home Economics"];
+    
+     }
+
+    
+     
+            for(var option in optionArray){
+            var pair = optionArray[option].split("|");
+            var newOption = document.createElement("option");
+        
+            newOption.value = pair[0];
+            newOption.innerHTML = pair[1];
+            subject.options.add(newOption)   }
+
+            for(var option in optionArray){
+            var pair = optionArray[option].split("|");
+            var newOption = document.createElement("option");
+        
+            newOption.value = pair[0];
+            newOption.innerHTML = pair[1];
+            subject1.options.add(newOption)   }
+
+            for(var option in optionArray){
+            var pair = optionArray[option].split("|");
+            var newOption = document.createElement("option");
+        
+            newOption.value = pair[0];
+            newOption.innerHTML = pair[1];
+            subject2.options.add(newOption)   }
+       
+    
+    </script>
+    
+    
+    <script src="/js/main.js"></script>
+    <script src="/js/userid.js"></script>
+    
+    </body>
+    
+    </html>
+    
+    
+    

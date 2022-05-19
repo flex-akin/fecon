@@ -1,0 +1,369 @@
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+    <title>BizPage Bootstrap Template</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+  
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+    <!-- Template Main CSS File -->
+    <link href="/css/style.css" rel="stylesheet">
+  
+    <script>
+      function populate(s1,s2){
+      var s1 = document.getElementById(s1);
+      var s2 = document.getElementById(s2);
+      s2.innerHTML = "";
+      
+      if(s1.value == "Primary"){
+          var optionArray = ["|","Primary One|Primary One","Primary Two|Primary Two","Primary Three|Primary Three", "Primary Four|Primary Four","Primary Five|Primary Five","Primary Six|Primary Six"];
+      } else if(s1.value == "Junior Secondary"){
+          var optionArray = ["|","JSS1|JSS1","JSS2|JSS2","JSS3|JSS3"];
+      } else if(s1.value == "Senior Secondary"){
+          var optionArray = ["|","SSS1|SSS1","SSS2|SSS2", "SSS3|SSS3"];
+      }else if(s1.value == "Advanced"){
+          var optionArray = ["|","100 Level|100 Level","200 Level|200 Level"];
+      }
+      for(var option in optionArray){
+          var pair = optionArray[option].split("|");
+          var newOption = document.createElement("option");
+          console.log("value", )
+          newOption.value = pair[0];
+          newOption.innerHTML = pair[1];
+          s2.options.add(newOption);
+      }
+  }
+  
+      
+      
+    </script>
+    <script src="/js/lga.js"></script>
+   
+  
+   
+  </head>
+  
+  <body>
+    <header id="header" class="fixed-top d-flex align-items-center ">
+      <div class="container-fluid">
+  
+        <div class="row justify-content-center align-items-center">
+          <div class="col-xl-11 d-flex align-items-center justify-content-between">
+           
+            <h1 class="logo"><a href="/" id="logo1"><img src="/img/feconlogo.png" alt="" class="img-fluid"></a> <a href="/">FECON</a> </h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            
+  
+            <nav id="navbar" class="navbar">
+              <ul>
+                <li><a class="nav-link scrollto" href="/index/home/login" ><font style=" padding: 7px; border:rgb(255, 255, 255); border: width 1px; border-style:solid;"> Login</font></a></li>
+                   
+                  
+                <li><a class="nav-link scrollto" href="/index/home/register">REGISTER</a></li>
+              </ul>
+              <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
+          </div>
+        </div>
+  
+      </div>
+    </header><!-- End Header -->
+  
+  
+    <section id="contact" style="padding-top: 100px;" >
+          <div class="container" data-aos="fade-down" >
+     
+            <div class="section-header">
+              <h3>REGISTER</h3>
+             
+            </div>
+          <div style="color: red; background-color: black;"> {{mv}}</div>
+    
+  <div class="form">
+      <form id="regForm"  action="/api/user/register" method="post" enctype="multipart/form-data" role="form" class="php-email-form">
+        <div style="text-align: center; background-color: rgb(236, 196, 196); color: red;"> {{message}}</div>
+        <div class="row">
+            <label style="padding:20px;">Personal Information</label>
+            <hr>
+            
+ 
+
+          
+  
+            <div class="form-group col-md-4">
+              <label style="padding-bottom:3px;">Title</label>
+              <select class="form-select form-select-md mb-3" id="title" name='title' aria-label=".form-select-lg example">
+                  <option selected>Mr/Mrs/Miss/Dr/chief/Prof</option>
+                  <option value="Mr">Mr</option>
+                  <option value="Mrs">Mrs</option>
+                  <option value="Miss">Miss</option>
+                  <option value="Dr">Dr</option>
+                  <option value="Chief">Chief</option>
+                  <option value="Prof">Prof</option>
+                </select>
+            </div>
+  
+           
+          <div class="form-group col-md-4">
+              <label style="padding-bottom:3px;">Status</label>
+              <select class="form-select form-select-md mb-3" id="status" name='status' aria-label=".form-select-lg example">
+                  <option selected>Student/Teacher/Parent</option>
+                  <option value="Student">Student</option>
+                  <option value="Teacher">Teacher</option>
+                  <option value="Parent">Parent</option>
+                  
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label style="padding-bottom:3px;">Year</label>
+            <input type="month" class="form-control" name="year" id="year" placeholder="year" required>
+          </div>
+  
+        </div>
+  
+        <div class="row">
+          
+          <div class="form-group col-md-6">
+              <label style="padding-bottom:3px;">Full Name</label>
+            <input type="text" name="surname" class="form-control" id="surname" placeholder="Surname" required>
+          </div>
+         
+          <div class="form-group col-md-6">
+              <label style="padding-bottom:3px;"> Other Names</label>
+              <input type="text" name="otherNames" class="form-control" id="otherNames" placeholder="Other names" required>
+            </div>
+         
+        </div>
+  
+        <div class="row">
+          
+          <div class="form-group col-md-6">
+              <label style="padding-bottom:3px;">Date of Birth</label>
+            <input type="date" name="dateOfBirth" class="form-control" id="dateOfBirth" placeholder="Date of birth" required>
+          </div>
+         
+          <div class="form-group col-md-6">
+              <label style="padding-bottom:3px;">Gender</label>
+              <select class="form-select form-select-md mb-3" name="gender" id="gender" aria-label=".form-select-lg example">
+                  <option selected>Male/Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  
+                  
+                </select>
+            </div>
+         
+        </div>
+  
+        <div class="row">
+          
+        
+          <div class="form-group col-md-3">
+            <label style="padding-bottom:3px;">Personal Phone number</label>
+            <input type="tel" name="studentPhoneNumber" class="form-control" id="studentPhoneNumber" placeholder="Phone Number"  required>
+          </div>
+          <div class="form-group col-md-3">
+            <label style="padding-bottom:3px;">Father's Phone Number</label>
+            <input type="tel" name="fathersPhoneNumber" class="form-control" id="fathersPhoneNumber" placeholder="Father's Phone Number" required>
+          </div>
+          <div class="form-group col-md-3">
+            <label style="padding-bottom:3px;">Mothers's Phone Number</label>
+            <input type="tel" name="mothersPhoneNumber" class="form-control" id="mothersPhoneNumber" placeholder="Mothers Phone Number" required>
+          </div>
+          <div class="form-group col-md-3">
+              <label style="padding-bottom: 3px; "> Email Address</label>
+            <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+          </div>
+        </div>
+  
+          
+        <div class="row">
+          
+        
+          <div class="form-group col-md-6">
+              <label style="padding-bottom:3px;">Class Category</label>
+              
+              <select class="form-select form-select-md mb-3" id="slct1"  onchange="populate(this.id,'slct2')">
+                  <option >Pick a class</option>
+                  <option value="Primary">Primary</option>
+                  <option value="Junior Secondary">Junior Secondary</option>
+                  <option value="Senior Secondary">Senior Secondary</option>
+                  <option value="Advanced">Advanced (100 & 200 level)</option>
+                  
+                </select>
+            </div>
+         
+            <div class="form-group col-md-6">
+              <label style="padding-bottom:3px;">Class</label>
+              <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" id="slct2" name="classe">
+                 
+                  
+                  
+                </select>
+            </div>
+         
+      </div>
+  
+      <div class="row">
+  
+  
+      <div class="form-group col-md-4">
+          <label class="control-label">State of Origin</label>
+          <select onchange="toggleLGA(this);" name="state" id="state" class="form-control">
+              <option value="" selected="selected">- Select -</option>
+              <option value="Abia">Abia</option>
+              <option value="Adamawa">Adamawa</option>
+              <option value="AkwaIbom">AkwaIbom</option>
+              <option value="Anambra">Anambra</option>
+              <option value="Bauchi">Bauchi</option>
+              <option value="Bayelsa">Bayelsa</option>
+              <option value="Benue">Benue</option>
+              <option value="Borno">Borno</option>
+              <option value="Cross River">Cross River</option>
+              <option value="Delta">Delta</option>
+              <option value="Ebonyi">Ebonyi</option>
+              <option value="Edo">Edo</option>
+              <option value="Ekiti">Ekiti</option>
+              <option value="Enugu">Enugu</option>
+              <option value="FCT">FCT</option>
+              <option value="Gombe">Gombe</option>
+              <option value="Imo">Imo</option>
+              <option value="Jigawa">Jigawa</option>
+              <option value="Kaduna">Kaduna</option>
+              <option value="Kano">Kano</option>
+              <option value="Katsina">Katsina</option>
+              <option value="Kebbi">Kebbi</option>
+              <option value="Kogi">Kogi</option>
+              <option value="Kwara">Kwara</option>
+              <option value="Lagos">Lagos</option>
+              <option value="Nasarawa">Nasarawa</option>
+              <option value="Niger">Niger</option>
+              <option value="Ogun">Ogun</option>
+              <option value="Ondo">Ondo</option>
+              <option value="Osun">Osun</option>
+              <option value="Oyo">Oyo</option>
+              <option value="Plateau">Plateau</option>
+              <option value="Rivers">Rivers</option>
+              <option value="Sokoto">Sokoto</option>
+              <option value="Taraba">Taraba</option>
+              <option value="Yobe">Yobe</option>
+              <option value="Zamfara">Zamafara</option>
+          </select>
+      </div>
+  
+      <div class="form-group col-md-4">
+          <label class="control-label">LGA of Origin</label>
+          <select name="LGAOfOrigin" id="LGAOfOrigin" class="form-control select-lga" required>
+          </select>
+  
+        </div>
+        <div class="form-group col-md-4">
+          <label class="control-label">Town</label>
+  
+          <input type="text" class="form-control" name="town" id="town" placeholder="Town" required>
+        </div>
+      </div>
+        
+        <div class="row">
+
+          <div class="form-group col-md-6">
+            <label class="control-label ">School</label>
+    
+            <input type="text" class="form-control" name="school" id="school" placeholder="School" required>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label class="control-label">Upload Picture</label>
+    
+            <input type="file" class="form-control" name="image" accept="image/jpg, image/jpeg, image/png" required>
+          </div>
+         
+         
+        </div>
+       
+  
+      
+        
+        <label style="padding:0px;">Login Details <i>(The generated User Id would be the means to log in)</i></label>
+        <hr>
+  
+        <div class="row" style="padding-bottom: 20px;"> 
+          <div class="row">
+        <div class="col-md-1"><label class='control-label' style="padding-left:15px; padding-top: 15px;">User Id</label></div>
+        
+        <div class="col-md-6"><input type="text" class="form-control" name="userId" id="idee" placeholder="UserId" required readonly></div>
+      
+      </div>
+
+        <div class="row">
+          <div class="col-md-6 text-center">
+          <button id="mumu" type="button"  style="margin-top: 10px; " class="btn btn-primary" >Generate id</button></div>
+        </div>
+      </div>
+       
+      <div class="row"> 
+  
+        <div class="form-group col-md-6">
+          <label style="padding-bottom:3px;">Password</label>
+          <input type="password" name="password" class="form-control" id="password" placeholder="Enter a password" required>
+        </div>
+  
+        <div class="form-group col-md-6">
+          <label style="padding-bottom:3px;">Confirm Password</label>
+          <input type="password" name="confirmPassword" class="form-control" id="confirmPassword" placeholder="Confirm your Password" required>
+        </div>
+        </div>
+        
+        <div class="text-center"><button type="submit" >Save</button></div>
+      </form>
+    </div>
+   
+  </div>
+  
+  
+  
+  </section>
+  
+  
+  <script src="/vendor/purecounter/purecounter.js"></script>
+  <script src="/vendor/aos/aos.js"></script>
+  <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="/vendor/waypoints/noframework.waypoints.js"></script>
+  
+  
+  <!-- Template Main JS File -->
+  
+  
+  
+  
+  
+  <script src="/js/main.js"></script>
+  <script src="/js/userid.js"></script>
+  
+  </body>
+  
+  </html>
+  
+  
+  

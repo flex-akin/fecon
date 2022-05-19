@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+    <title>BizPage Bootstrap Template</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+  
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+    <!-- Template Main CSS File -->
+    <link href="/css/style.css" rel="stylesheet">
+  
+   
+   
+  </head>
+  
+  <body>
+
+      <!-- ======= Header ======= -->
+      <header id="header" class="fixed-top d-flex align-items-center ">
+        <div class="container-fluid">
+    
+          <div class="row justify-content-center align-items-center">
+            <div class="col-xl-11 d-flex align-items-center justify-content-between">
+             
+              <h1 class="logo"><a href="/" id="logo1"><img src="/img/feconlogo.png" alt="" class="img-fluid"></a> <a href="/">FECON</a> </h1>
+              <!-- Uncomment below if you prefer to use an image logo -->
+              
+    
+              <nav id="navbar" class="navbar">
+                <ul>
+                  <li><a class="nav-link scrollto" >{{user.surname}} &nbsp {{user.otherNames}}</a></li>
+                  <li><a class="nav-link scrollto" href="/index/home/examreg" ><font style=" padding: 7px; background-color: #18d36e;"> REGISTER FOR BISCO</font></a></li>
+
+                  <li><a class="nav-link scrollto" href="/api/user/logout" ><font style=" padding: 7px; border:rgb(255, 255, 255); border: width 1px; border-style:solid;"> Logout</font></a></li>
+                 
+                
+                  
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+              </nav><!-- .navbar -->
+
+            </div>
+          </div>
+    
+        </div>
+
+        
+      </header><!-- End Header -->
+
+
+      <section id="contact" style="padding-top: 200px;" class="section-bg" >
+        <div class="container" style="align-items: center;" data-aos="fade-up">
+  
+          <div class="section-header">
+            <h3>DASHBOARD</h3>
+           
+          </div>
+        <div style="color: red; background-color: black;"> {{mv}}</div>
+<div>
+  <a href="/index/home/examreg">register for exam</a>
+</div>
+<div class="row">
+  <div class="col-6 col-md-9" style="text-transform:uppercase; color: #18d36e; "><h1 ><b>Welcome, </b>{{user.title}} {{user.otherNames}}</h1></div>
+  <div class="col-6 col-md-3"><div > <img src="/uploads/{{user.image}}" class="rounded mx-auto d-block" style="height: 300px; width: 300px; "> </div></div>
+</div>
+<br>
+<div class="row">
+  <div class="col-6 col-md-9" style="text-transform:uppercase;"></div>
+  <div class="col-auto" style="text-align: center;"><div > <h2>userId: <b>{{user.userId}}</b></h2> </div></div>
+</div>
+
+<!-- Columns are always 50% wide, on mobile and desktop -->
+
+<div class="row">
+  <div class="col-12" style="background-color: rgb(190, 191, 192);"><p style="padding-top: 20px; " ><b>Email: </b>{{user.email}}</p></div>
+  <div class="col-12"><p style="padding-top: 20px; " ><b>Personal Phone Number: </b>{{user.studentPhoneNumber}}</p></div>
+</div>
+
+
+
+<div class="row">
+  <div class="col-12" style="background-color: rgb(190, 191, 192);" ><p style="padding-top: 20px; " ><b>Gender: </b>{{user.gender}}</p></div>
+  <div class="col-12"><p style="padding-top: 20px; " ><b>Date Of Birth: </b>{{user.dateOfBirth}}</p></div>
+</div>
+
+<div class="row">
+  <div class="col-12" style="background-color: rgb(190, 191, 192);"><p style="padding-top: 20px; " ><b>Class: </b>{{user.classe}}</p></div>
+  <div class="col-12"><p style="padding-top: 20px; " ><b>School: </b>{{user.school}}</p></div>
+</div>
+
+<div class="row">
+  <div class="col-12" style="background-color: rgb(190, 191, 192);"><p style="padding-top: 20px; " ><b>State: </b>{{user.state}}</p></div>
+  <div class="col-12"><p style="padding-top: 20px; " ><b>LGA: </b>{{user.LGAOfOrigin}}</p></div>
+  <div class="col-12" style="background-color: rgb(190, 191, 192);"><p style="padding-top: 20px; " ><b>Town: </b>{{user.town}}</p></div>
+
+</div>
+
+
+
+</div>
+
+</script>
+
+
+<script src="/vendor/purecounter/purecounter.js"></script>
+<script src="/vendor/aos/aos.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/vendor/waypoints/noframework.waypoints.js"></script>
+
+
+<!-- Template Main JS File -->
+
+
+
+
+
+<script src="/js/main.js"></script>
+<script src="/js/userid.js"></script>
+
+</body>
+
+</html>
+
+  </body>
