@@ -308,7 +308,7 @@
     <script>
  const classed = document.getElementById("classe").value
 
- if (classed == "Primary Two"){
+ if (classed == "Primary Two" || "Primary One" || "Primary Three" || "Primary Four" || "Primary Five" || "Primary Six"){
             document.getElementById("subject3").value ="Mathematics and Quantitative Reasoning"
             document.getElementById("subject4").value ="English Studies and Verbal Reasoning"
             document.getElementById("subject5").value ="Current Affairs, Sciences and Arts"
@@ -324,14 +324,20 @@
 
      console.log("subject1", classed)
      
-     if (classed == "") {
+     if (classed == "SS1" || "SSS2" || "SSS3") {
             document.getElementById("sub1").value ="English Language"
             document.getElementById("sub2").value ="Mathematics"
+            document.getElementById("subject3").value =""
+            document.getElementById("subject4").value =""
+            document.getElementById("subject5").value =""
             var optionArray = ["|Select Subjects...","Biology|Biology","Government|Government","Physics|Physics", "Chemistry|Chemistry", "Geography|Geography", "Literature|Literature", "Accounting|Accounting", "IRK/CRK|IRK/CRK", "Economics|Economics"];
      }
-     else if (classed == "") {
+     else if (classed == "JSS1" || "JSS2" || "JSS3") {
         document.getElementById("sub1").value ="English Language"
         document.getElementById("sub2").value ="Mathematics"
+        document.getElementById("subject3").value =""
+            document.getElementById("subject4").value =""
+            document.getElementById("subject5").value =""
         var optionArray = ["|Select Subjects...","Basic Technology|Basic Technology","Basic Science|Basic Science","Agricultural Science|Agricultural Science", "Computer Science|Computer Science", "Physical and Health Education|Physical and Health Education", "Social Studies|Social Studies", "Civic Education|Civic Education", "IRK/CRK|IRK/CRK","Cultural and Creative Art (C.C.A)|Cultural and Creative Art (C.C.A)", "Home Economics|Home Economics"];
     
      }
