@@ -5,7 +5,7 @@
       <meta charset="utf-8">
       <meta content="width=device-width, initial-scale=1.0" name="viewport">
     
-      <title>BizPage Bootstrap Template</title>
+      <title>Flying Feather Educational Consult</title>
       <meta content="" name="description">
       <meta content="" name="keywords">
     
@@ -26,6 +26,15 @@
     
       <!-- Template Main CSS File -->
       <link href="/css/style.css" rel="stylesheet">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
     
       <script>
         function populate(s1,s2){
@@ -34,20 +43,28 @@
         s2.innerHTML = "";
         
         if(s1.value == "Ibadan"){
+          document.getElementById("examDate").value = "7th of June, 2022"
             var optionArray = ["|Select Center...","Lead City|Lead City","Ibadan City Polytechnic|Ibadan City Polytechnic","Havard Center University of Ibadan|Havard Center University of Ibadan", "Multipurpose Hall, Koladaisi University|Multipurpose Hall, Koladaisi University"];
         } else if(s1.value == "Oyo"){
+            document.getElementById("examDate").value = "15th of June, 2022"
             var optionArray = ["|Select Center...","Language Lecture Theatre Federal College of Education, Oyo|Language Lecture Theatre Federal College of Education, Oyo","Main Lecture Hall, Emmanuel Alayande College of Education, Oyo|Main Lecture Hall, Emmanuel Alayande College of Education, Oyo","School of Surveying, Oyo|School of Surveying, Oyo", "Samuel Ajayi Crowther University, Oyo|Samuel Ajayi Crowther University, Oyo"];
         } else if(s1.value == "Ogbomosho"){
+          document.getElementById("examDate").value = "No Date Yet"
             var optionArray = ["|Select Center..."];
         }else if(s1.value == "Ede"){
+          document.getElementById("examDate").value = "1st of June, 2022"
             var optionArray = ["|Select Center...","Redeemer University|Redeemer University","Adeleke University|Adeleke University"];
         }else if(s1.value == "Oshogbo"){
+          document.getElementById("examDate").value = "31st of May, 2022"
             var optionArray = ["|Select Center...","Lilian Event Center|Lilian Event Center"];
         }else if(s1.value == "Ikirun"){
+          document.getElementById("examDate").value = "5th of June, 2022"
             var optionArray = ["|Select Center...","School of Science|School of Science"];
         }else if(s1.value == "Ife"){
+          document.getElementById("examDate").value = "15th of June, 2022"
             var optionArray = ["|Select Center...","Obafemi Awolowo University|Obafemi Awolowo University"];
         }else if(s1.value == "Ilesha"){
+          document.getElementById("examDate").value = "25th of June, 2022"
             var optionArray = ["|Select Center...","Federal Government College|Federal Government College","Ilesha Town Hall|Ilesha Town Hall"];
         }
 
@@ -61,10 +78,12 @@
         }
     }
     
-    
+ 
    
         
       </script>
+
+      
       <script src="/js/city.js"></script>
      
     
@@ -195,7 +214,7 @@
     
         <div class="form-group col-md-4">
             <label class="control-label">Preferred Exam City</label>
-            <select name="LGAOfOrigin" id="LGAOfOrigin" class="form-control select-lga"  onchange="populate(this.id, 'center')" required>
+            <select name="LGAOfOrigin" id="examCity" class="form-control select-lga"  onchange="populate(this.id, 'center')" required>
             </select>
     
           </div>
@@ -281,6 +300,19 @@
              
             </div>
             </div>
+
+            <label style="padding:0px;">Exam Date</i></label>
+            <hr>
+              <div class="row"> 
+                <div class="form-group col-md-4">
+          
+                  <input  name="state" id="examDate" class="form-control" readonly required >
+          
+                  
+              </div>
+              
+              
+                </div>
 
           <div class="text-center"><button type="submit" >Save</button></div>
         </form>
@@ -370,6 +402,8 @@
        
     
     </script>
+
+   
     
     
     <script src="/js/main.js"></script>
