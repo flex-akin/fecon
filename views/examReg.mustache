@@ -131,19 +131,19 @@
             <div style="color: red; background-color: black;"> {{mv}}</div>
       
     <div class="form">
-        <form id="regForm"  action="/api/user/register" method="post"  role="form" class="php-email-form">
+        <form id="regForm"  action="/api/user/examReg" method="post"  role="form" class="php-email-form">
           
     
           <div class="row">
             
             <div class="form-group col-md-6">
                 <label style="padding-bottom:3px;">Full Name</label>
-              <input type="text" name="surname" value="{{user.title}} {{user.surname}} {{user.otherNames}}" class="form-control" readonly required>
+              <input type="text" name="fullName" value="{{user.title}} {{user.surname}} {{user.otherNames}}" class="form-control" readonly required>
             </div>
            
             <div class="form-group col-md-6">
                 <label style="padding-bottom:3px;"> User Id</label>
-                <input type="text" name="otherNames" class="form-control" value="{{user.userId}}" readonly required>
+                <input type="text" name="userId" class="form-control" value="{{user.userId}}" readonly required>
               </div>
            
           </div>
@@ -152,12 +152,12 @@
             
             <div class="form-group col-md-6">
                 <label style="padding-bottom:3px;">Date of Birth</label>
-                <input type="text" name="surname" value="{{user.dateOfBirth}}" class="form-control" readonly required>
+                <input type="text" name="dateOfBirth" value="{{user.dateOfBirth}}" class="form-control" readonly required>
             </div>
            
             <div class="form-group col-md-6">
                 <label style="padding-bottom:3px;">Gender</label>
-                <input type="text" name="surname" value="{{user.gender}}" class="form-control" readonly required>
+                <input type="text" name="gender" value="{{user.gender}}" class="form-control" readonly required>
 
                   
               </div>
@@ -186,13 +186,13 @@
             <div class="form-group col-md-6">
                 
                     <label style="padding-bottom:3px;">Year</label>
-                    <input type="text" name="year" class="form-control"  oninput=myfunction() required>
+                    <input type="text" name="year" id="year" class="form-control" required readonly>
 
                 </div>
            
                 <div class="form-group col-md-6">
-                <label style="padding-bottom:3px;">Class Category</label>
-                <input type="text" name="classe" id="classe" value="{{user.classe}}" class="form-control" readonly required>
+                <label style="padding-bottom:3px;">Class</label>
+                <input type="text" name="classe" id="clase" value="{{user.classe}}" class="form-control" readonly required>
               </div>
            
         </div>
@@ -214,7 +214,7 @@
     
         <div class="form-group col-md-4">
             <label class="control-label">Preferred Exam City</label>
-            <select name="LGAOfOrigin" id="examCity" class="form-control select-lga"  onchange="populate(this.id, 'center')" required>
+            <select name="examCity" id="examCity" class="form-control select-lga"  onchange="populate(this.id, 'center')" required>
             </select>
     
           </div>
@@ -242,12 +242,12 @@
     
           <div class="form-group col-md-6" >
             <label style="padding-bottom:3px;"></label>
-            <input type="text" id="sub1" value="Mathematics" name="subject2" class="form-control" readonly required>
+            <input type="text" id="sub1" value="Mathematics" name="sub1" class="form-control" readonly required>
           </div>
     
           <div class="form-group col-md-6">
            
-            <input type="text" id="sub2" value="English Language" name="subject1" class="form-control" readonly required>
+            <input type="text" id="sub2" value="English Language" name="sub2" class="form-control" readonly required>
           </div>
         
           </div>
@@ -255,20 +255,20 @@
           <div class="row"> 
           <div class="form-group col-md-4">
     
-            <select  name="state" id="subject" class="form-control" r>
+            <select  name="sub3" id="subject" class="form-control" >
     
             </select>
         </div>
         
         <div class="form-group col-md-4">
         
-            <select name="LGAOfOrigin" id="subject1" class="form-control" r>
+            <select name="sub4" id="subject1" class="form-control" >
             </select>
     
           </div>
           <div class="form-group col-md-4">
             
-            <select class="form-control"  id="subject2" name="center">
+            <select class="form-control"  id="subject2" name="sub5">
                   
             </select>
     
@@ -280,20 +280,20 @@
           <div class="row"> 
             <div class="form-group col-md-4">
       
-              <input  name="state" id="subject3" class="form-control" readonly required >
+              <input  name="sub6" id="subject3" class="form-control" readonly required >
       
               
           </div>
           
           <div class="form-group col-md-4">
           
-              <input name="LGAOfOrigin" id="subject4" class="form-control" readonly required>
+              <input name="sub7" id="subject4" class="form-control" readonly required>
               
       
             </div>
             <div class="form-group col-md-4">
               
-              <input class="form-control"  id="subject5" name="center" readonly required>
+              <input class="form-control"  id="subject5" name="sub8" readonly required>
                     
               
     
@@ -304,12 +304,18 @@
             <label style="padding:0px;">Exam Date</i></label>
             <hr>
               <div class="row"> 
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-6">
           
-                  <input  name="state" id="examDate" class="form-control" readonly required >
+                  <input  name="examDate" id="examDate" class="form-control" readonly required >
           
                   
               </div>
+              <div class="form-group col-md-6">
+          
+                <input  name="image" id="examDate" class="form-control"  value="{{user.image}}" readonly required >
+        
+                
+            </div>
               
               
                 </div>
@@ -337,71 +343,7 @@
     <!-- Template Main JS File -->
     
     
-    <script>
- const classed = document.getElementById("classe").value
-
- if (classed == "Primary Two" || "Primary One" || "Primary Three" || "Primary Four" || "Primary Five" || "Primary Six"){
-            document.getElementById("subject3").value ="Mathematics and Quantitative Reasoning"
-            document.getElementById("subject4").value ="English Studies and Verbal Reasoning"
-            document.getElementById("subject5").value ="Current Affairs, Sciences and Arts"
-            document.getElementById("sub1").value =""
-            document.getElementById("sub2").value =""
-    
-    }
-
-
- const subject = document.getElementById("subject")
- const subject1 = document.getElementById("subject1")
- const subject2 = document.getElementById("subject2")
-
-     console.log("subject1", classed)
-     
-     if (classed == "SS1" || "SSS2" || "SSS3") {
-            document.getElementById("sub1").value ="English Language"
-            document.getElementById("sub2").value ="Mathematics"
-            document.getElementById("subject3").value =""
-            document.getElementById("subject4").value =""
-            document.getElementById("subject5").value =""
-            var optionArray = ["|Select Subjects...","Biology|Biology","Government|Government","Physics|Physics", "Chemistry|Chemistry", "Geography|Geography", "Literature|Literature", "Accounting|Accounting", "IRK/CRK|IRK/CRK", "Economics|Economics"];
-     }
-     else if (classed == "JSS1" || "JSS2" || "JSS3") {
-        document.getElementById("sub1").value ="English Language"
-        document.getElementById("sub2").value ="Mathematics"
-        document.getElementById("subject3").value =""
-            document.getElementById("subject4").value =""
-            document.getElementById("subject5").value =""
-        var optionArray = ["|Select Subjects...","Basic Technology|Basic Technology","Basic Science|Basic Science","Agricultural Science|Agricultural Science", "Computer Science|Computer Science", "Physical and Health Education|Physical and Health Education", "Social Studies|Social Studies", "Civic Education|Civic Education", "IRK/CRK|IRK/CRK","Cultural and Creative Art (C.C.A)|Cultural and Creative Art (C.C.A)", "Home Economics|Home Economics"];
-    
-     }
-
-    
-     
-            for(var option in optionArray){
-            var pair = optionArray[option].split("|");
-            var newOption = document.createElement("option");
-        
-            newOption.value = pair[0];
-            newOption.innerHTML = pair[1];
-            subject.options.add(newOption)   }
-
-            for(var option in optionArray){
-            var pair = optionArray[option].split("|");
-            var newOption = document.createElement("option");
-        
-            newOption.value = pair[0];
-            newOption.innerHTML = pair[1];
-            subject1.options.add(newOption)   }
-
-            for(var option in optionArray){
-            var pair = optionArray[option].split("|");
-            var newOption = document.createElement("option");
-        
-            newOption.value = pair[0];
-            newOption.innerHTML = pair[1];
-            subject2.options.add(newOption)   }
-       
-    
-    </script>
+    <script src="/js/test.js"></script>
 
    
     

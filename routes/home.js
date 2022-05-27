@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const verify = require('../verifyjwt')
+const cookieParser = require("cookie-parser");
 
 
 
@@ -19,6 +20,11 @@ router.get('/login', (req, res)=> {
 router.get('/examreg', verify, (req, res)=> {
     res.render('examReg', req.user)
 });
+
+
+router.get('/printpage',  (req, res) => {
+    res.render('print', req.cookies.details)
+} )
 
 
 

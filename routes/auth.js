@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken')
 const path = require('path')
 
 const User = require('../model/User')
+const Examuser = require('../model/Examuser')
 
 const {registerValidation, loginValidation} = require("../validate")
 const multer = require('multer') 
@@ -40,16 +41,10 @@ router.post('/register', upload, async (req, res)=> {
 
 
 
-if (req.file.size > 1000000) return res.status(400).render("../views/register",{message : "file is too large"})
+if (req.file.size > 5000000) return res.status(400).render("../views/register",{message : "file is too large"})
  
 // const mimetype =(req.file.mimetype);
-
 // if(mimetype == 'image/jpeg' || mimetype == 'image/jpg' ) return res.status(400).render("../views/register",{message : "Invalid file format"})
-
-
-
-
-
 const {error} = registerValidation(req.body);
 //if (error) return res.status(400).json({message : error.details[0].message})
 if (error) return res.status(400).render("../views/register",{message : error.details[0].message})
@@ -57,8 +52,8 @@ if (error) return res.status(400).render("../views/register",{message : error.de
 // res.send(error.details[0].message)
 
 //CHECK FOR DUPLICATE 
-const emailExist = await User.findOne({ email: req.body.email});
-if (emailExist) return res.status(400).render("../views/register",{message : "Email Already Exists"})
+const emailExist = await User.findOne({ studentPhoneNumber: req.body.studentPhoneNumber});
+if (emailExist) return res.status(400).render("../views/register",{message : "Phone number Already Exists"})
 
 
 //HASH THE PASSWORD
@@ -95,19 +90,59 @@ const hashPassword = await bcrypt.hash(req.body.password, salt);
         const savedUser = await user.save();
         res.render("../views/login", {message : "success"});
 
-        
-        
     }catch (err){
         console.log('error', err)
-        res.status(400).json({message : "error"})
-        
+        res.status(400).json({message : "error"})   
     }
-
-   
-  
 
 });
 
+// EXAM REGISTRATION
+
+router.post('/examReg', async (req, res)=> {
+
+
+  
+        try {
+        const examuser = new Examuser ({
+        
+         fullName : req.body.fullName,
+         userId : req.body.userId,
+         gender : req.body.gender,
+         phoneNumber : req.body.phoneNumber,
+         dateOfBirth : req.body.dateOfBirth,
+         year : req.body.year,
+         email : req.body.email,
+         classe : req.body.classe,
+         state : req.body.state,
+         examCity : req.body.examCity,
+         center : req.body.center,
+         sub1 : req.body.sub1,
+         sub2 : req.body.sub2,
+         sub3 : req.body.sub3,
+         sub4 : req.body.sub4,
+         sub5 : req.body.sub5,
+         sub6 : req.body.sub6,
+         sub7 : req.body.sub7,
+         sub8 : req.body.sub8,
+         examDate : req.body.examDate,
+         image : req.body.image,
+         
+         
+         
+        });
+            const saveduser = await examuser.save();
+            
+
+           res.render("../views/print", saveduser);
+            //  console.log(saveduser)
+
+        }catch (err){
+            console.log('error', err)
+            res.status(400).json({message : "error"})
+            
+        }
+    });
 
 
 
@@ -120,7 +155,7 @@ router.post('/login', async (req, res) => {
     
 
 const user = await User.findOne({ userId : req.body.userId});
-if (!user) return res.status(400).render('../views/login',{message:"USER doesn't exist"});
+if (!user) return res.status(400).render('../views/login',{message:"User doesn't exist"});
     
        
 // CHECK IF PASSWORD IS COORECT
@@ -144,6 +179,7 @@ res.redirect('/index/home/');
 
 router.get('/logout', async (req, res) => {
     res.cookie("auth_token", " ", {maxAge: 1});
+    res.cookie("details", " ", {maxAge: 1});
     res.redirect('/')
 
 
