@@ -18,10 +18,10 @@ if (classed == "Primary One" || classed == "Primary Two" || classed == "Primary 
     else if (classed == "JSS1" || classed == "JSS2" || classed == "JSS3") {
        document.getElementById("sub1").value ="English Language"
        document.getElementById("sub2").value ="Mathematics"
-       document.getElementById("subject3").value =""
-           document.getElementById("subject4").value =""
-           document.getElementById("subject5").value =""
-       var optionArray = ["|Select Subjects...","Basic Technology|Basic Technology","Basic Science|Basic Science","Agricultural Science|Agricultural Science", "Computer Science|Computer Science", "Physical and Health Education|Physical and Health Education", "Social Studies|Social Studies", "Civic Education|Civic Education", "IRK/CRK|IRK/CRK","Cultural and Creative Art (C.C.A)|Cultural and Creative Art (C.C.A)", "Home Economics|Home Economics"];
+       document.getElementById("subject3").value ="Science (Basic Technology, Basic Science, Agricultural Science, Computer Science, Physical and Health Education)"
+        document.getElementById("subject4").value ="Social Sciences (Social Studies , Civic Education, IRK/CRK, Cultural and Creative Art (C.C.A), Nigerian Language)"
+        document.getElementById("subject5").value ="Home Economics, and Business Studies"
+       
    
     }
 
