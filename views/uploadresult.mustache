@@ -1,0 +1,193 @@
+
+<html lang="en">
+
+    <head>
+      <meta charset="utf-8">
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    
+      <title>Flying Feather Educational Consult</title>
+      
+      <meta content="" name="description">
+      <meta content="" name="keywords">
+    
+      <!-- Favicons -->
+      <link href="assets/img/favicon.png" rel="icon">
+      <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+      </script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <!-- Vendor CSS Files -->
+      <link href="/vendor/animate.css/animate.min.css" rel="stylesheet">
+      <link href="/vendor/aos/aos.css" rel="stylesheet">
+      <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+      <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+      <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    
+      <!-- Template Main CSS File -->
+      <link href="/css/style.css" rel="stylesheet">
+ 
+
+<script>
+  $(document).ready(function () {
+    $("#check").on("submit", function (event) {
+      event.preventDefault();
+      const id = $("#idee").val();
+    
+      $.ajax({
+        url: `/api/user/getsubjects/${id}`,
+        method: "get",
+        contentType: "application/json",
+        success: function (res) {
+          $("#team").html(`
+          <form id="regForm"  action="/api/user/login" method="post"  role="form" class="php-email-form">
+        <div style="text-align: center; background-color: rgb(196, 236, 212); color: rgb(18, 200, 28);"> {{message}}</div>
+
+       
+        <div class="row"> 
+
+            <div class="form-group col-md-6">
+                <label style="padding-bottom:3px;">${res.subjects[0].subject}</label>
+                <input type="number" name="userId" class="form-control" id="idee"  required>
+              </div>
+    
+          <div class="form-group col-md-6">
+            <label style="padding-bottom:3px;">${res.subjects[1].subject}</label>
+            <input type="number" name="password" class="form-control" id="password"  required>
+          </div>
+    </div>
+        
+    <div class="row"> 
+
+          <div class="form-group col-md-6">
+              <label style="padding-bottom:3px;">${res.subjects[2].subject}</label>
+              <input type="number" name="userId" class="form-control" id="idee"  required>
+            </div>
+
+          <div class="form-group col-md-6">
+          <label style="padding-bottom:3px;">${res.subjects[3].subject}</label>
+          <input type="number" name="password" class="form-control" id="password"  required>
+          </div>
+
+          </div>
+
+          <div class="row"> 
+
+          <div class="form-group col-md-6">
+              <label style="padding-bottom:3px;">${res.subjects[4].subject}</label>
+              <input type="number" name="userId" class="form-control" id="idee"  required>
+            </div>
+
+            </div>
+                
+          <div class="text-center"><button type="submit" >Submit Result</button></div>
+        </form>
+          `);
+       
+      }, 
+      error: function (error) {
+        alert('user was not found')
+      }
+      });
+    });
+  });
+</script>
+     
+    </head>
+    
+    <body>
+
+        <!-- ======= Header ======= -->
+        <header id="header" class="fixed-top d-flex align-items-center ">
+          <div class="container-fluid">
+      
+            <div class="row justify-content-center align-items-center">
+              <div class="col-xl-11 d-flex align-items-center justify-content-between">
+               
+                <h1 class="logo"><a href="/" id="logo1"><img src="/img/feconlogo.png" alt="" class="img-fluid"></a> <a href="/">FECON</a> </h1>
+                <!-- Uncomment below if you prefer to use an image logo -->
+                
+      
+                <nav id="navbar" class="navbar">
+                  <ul>
+                 
+                    <li><a class="nav-link scrollto" href="/index/home/login" ><font style=" padding: 7px; border:rgb(255, 255, 255); border: width 1px; border-style:solid;"> Login</font></a></li>
+                  
+                    <li><a class="nav-link scrollto" href="/index/home/register">REGISTER</a></li>
+                  </ul>
+                  <i class="bi bi-list mobile-nav-toggle"></i>
+                </nav><!-- .navbar -->
+              </div>
+            </div>
+      
+          </div>
+        </header><!-- End Header -->
+
+
+
+        <section id="contact" style="padding-top: 200px;" class="section-bg" >
+            <div class="container" style="align-items: center;" data-aos="fade-up">
+      
+              <div class="section-header">
+                <h3>UPLOAD RESULTS</h3>
+               
+              </div>
+            <div style="color: red; background-color: black;"> {{mv}}</div>
+      
+    <div class="form">
+        <form id="check"class="php-email-form" >
+        <div style="text-align: center; background-color: rgb(196, 236, 212); color: rgb(18, 200, 28);"> {{message}}</div>
+
+        <div class="row"> 
+
+            <div class="col-md-1">
+                <label style="font-weight:1000 ; padding-top: 1em;">User Id</label>
+                </div>
+            <div class="form-group col-md-9">
+
+                <input type="text" name="userId" class="form-control" id="idee" required>
+              </div>
+    
+    
+      
+          <div class="text-center col-md-1"><button type="submit" >Submit</button></div>
+        </form>
+      </div>
+      <div id="team">
+
+      </div>
+     
+    </div>
+    
+    
+    
+    </script>
+    
+    
+    <script src="/vendor/purecounter/purecounter.js"></script>
+    <script src="/vendor/aos/aos.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="/vendor/waypoints/noframework.waypoints.js"></script>
+    
+    
+    <!-- Template Main JS File -->
+    
+    
+    
+    
+    
+    <script src="/js/main.js"></script>
+    <script src="/js/userid.js"></script>
+    
+    </body>
+    
+    </html>
+    
+    
+    

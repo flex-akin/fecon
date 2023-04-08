@@ -1,6 +1,9 @@
 const router = require('express').Router();
 const verify = require('../verifyjwt')
 const cookieParser = require("cookie-parser");
+const verifyAdmin = require('../verifyAdmin')
+
+
 
 
 
@@ -26,10 +29,19 @@ router.get('/printpage',  (req, res) => {
     res.render('print', req.cookies.details)
 } )
 
+router.get('/admin', verifyAdmin, (req, res) => {
+res.render('admin', req.user)
+} )
 
+router.get('/adminresult', verifyAdmin, (req, res) => {
+    res.render('uploadresult',)
+    } )
+    
 
 // router.get('/go', (req, res)=> {
 //     res.render('register', null)
 // });
 
 module.exports = router;
+
+

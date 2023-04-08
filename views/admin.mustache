@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+    <title>Flying Feather Educational Consult</title>
+    
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+  
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href="/vendor/animate.css/animate.min.css" rel="stylesheet">
+    <link href="/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  
+    <!-- Template Main CSS File -->
+    <link href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css" rel="stylesheet">
+
+    <link href="/css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.js"></script>
+    
+ 
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+
+  </head>
+  
+  <body>
+
+
+      <!-- ======= Header ======= -->
+      <header id="header" class="fixed-top d-flex align-items-center ">
+        <div class="container-fluid">
+    
+          <div class="row justify-content-center align-items-center">
+            <div class="col-xl-10 d-flex align-items-center justify-content-between">
+             
+              <h1 class="logo"><a href="/" id="logo1"><img src="/img/feconlogo.png" alt="" class="img-fluid"></a> <a href="/">FECON</a> </h1>
+              <!-- Uncomment below if you prefer to use an image logo -->
+              
+    
+              <nav id="navbar" class="navbar">
+                <ul>
+                  <li><a class="nav-link scrollto" >{{user.surname}} &nbsp {{user.otherNames}}</a></li>
+                  <li><a class="nav-link scrollto" href="/index/home/examreg" ><font style=" padding: 7px; background-color: #18d36e;"> REGISTER FOR BISCO</font></a></li>
+
+                  <li><a class="nav-link scrollto" href="/api/user/logout" ><font style=" padding: 7px; border:rgb(255, 255, 255); border: width 1px; border-style:solid;"> Logout</font></a></li>
+                 
+                
+                  
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+              </nav><!-- .navbar -->
+
+            </div>
+          </div>
+    
+        </div>
+
+        
+      </header><!-- End Header -->
+
+
+      <section id="contact" class="section-bg" >
+        <div class="container-fluid" style="align-items: center;" data-aos="fade-up">
+            <div class="row">
+              <div class="col-lg-2 d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+                <hr>
+                <ul class="nav nav-pills flex-column mb-auto">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link active" aria-current="page">
+                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+                      Home
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+                      Dashboard
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+                      Orders
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+                      Products
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link text-white">
+                      <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+                      Customers
+                    </a>
+                  </li>
+                </ul>
+                <hr>
+              </div>
+              <div class="col-lg-10">
+          <div class="section-header" style="padding-top: 50px;" >
+            <h3>DASHBOARD</h3>
+           
+          </div>
+          <script>
+   
+
+            $(document).ready(function () {
+                $('#example').DataTable({
+                    "order": [
+                        0,'desc'
+                    ], 
+                    "processing": true,
+                    // "serverSide" : true,
+                    "select" :true,
+              
+                   
+                    "ajax": {
+                        "type" : "get",
+                        'url': 'http://localhost:6110/api/user/allusers',
+                        'contentType' : 'application/json; charset=utf-8' ,
+                        'dataType' : 'json',
+                        "dataSrc": "users"
+                        
+                            }, 
+                    columns: [
+                        { "data": 'surname' },
+                        { "data": 'otherNames' },
+                        { "data": 'gender' },
+                        { "data": 'studentPhoneNumber' },
+                        { "data": 'email' },
+                        { "data": 'classe' },
+                        { "data": 'state' },
+                        { "data": 'school' },
+                        { "data": 'userId' },
+
+        ]
+                });
+            });
+            </script>
+          <table id="example" class="display">
+              <thead>
+                  <tr>
+                      <th>Last Name</th>
+                      <th>other Names</th>
+                      <th>Gender</th>
+                      <th>Phone Number</th>
+                      <th>Email</th>
+                      <th>Class</th>
+                      <th>State of Origin</th>
+                      <th>School</th>
+                      <th>User Id</th>
+
+                  </tr>
+              </thead>
+              
+          </table>
+
+</div>
+</div>
+</div>
+      </section>
+
+</script>
+
+
+<script src="/vendor/purecounter/purecounter.js"></script>
+<script src="/vendor/aos/aos.js"></script>
+<script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/vendor/waypoints/noframework.waypoints.js"></script>
+
+
+<!-- Template Main JS File -->
+
+
+
+
+<script src="/js/main.js"></script>
+<script src="/js/main.js"></script>
+
+<script src="/js/userid.js"></script>
+
+</body>
+
+</html>
+
+  </body

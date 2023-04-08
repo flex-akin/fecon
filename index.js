@@ -16,8 +16,10 @@ const multer  = require('multer')
 dotenv.config()
 
 
-mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser: true} ,() => 
-    console.log('connected to db'));
+mongoose.connect(process.env.DB_CONNECT, {useNewUrlParser: true} ,() => {
+    console.log('connected to db');
+
+})
 
 app.set('views', path.join(__dirname,'views'))
 app.engine('mustache', require('hogan-middleware').__express);

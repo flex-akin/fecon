@@ -26,9 +26,6 @@ filename: function(req, file, cb){
 
 const upload = multer ({
     storage: storage,
-    
-    
-  
 }).single("image");
 
 
@@ -100,10 +97,49 @@ const hashPassword = await bcrypt.hash(req.body.password, salt);
 // EXAM REGISTRATION
 
 router.post('/examReg', async (req, res)=> {
+ try {
 
+    const subjects = [{
+        subject: req.body.sub1,
+        score: null,
+    },
+    {
+        subject: req.body.sub2,
+        score: null,
+    },
+    {
+        subject: req.body.sub3,
+        score: null,
+    },
+    {
+        subject: req.body.sub4,
+        score: null,
+    },
+    {
+        subject: req.body.sub5,
+        score: null,
+    },
+    {
+        subject: req.body.sub6,
+        score: null,
+    },
+    {
+        subject: req.body.sub7,
+        score: null,
+    },
+    {
+        subject: req.body.sub8,
+        score: null,
+    }
+]
+for ( i = subjects.length-1; i>=0; i--){
+    if (subjects[i].subject == ''){
+        subjects.splice(i,1)
+    }
+    
+}
+console.log(subjects)
 
-  
-        try {
         const examuser = new Examuser ({
         
          fullName : req.body.fullName,
@@ -117,27 +153,17 @@ router.post('/examReg', async (req, res)=> {
          state : req.body.state,
          examCity : req.body.examCity,
          center : req.body.center,
-         sub1 : req.body.sub1,
-         sub2 : req.body.sub2,
-         sub3 : req.body.sub3,
-         sub4 : req.body.sub4,
-         sub5 : req.body.sub5,
-         sub6 : req.body.sub6,
-         sub7 : req.body.sub7,
-         sub8 : req.body.sub8,
+         subject: subjects,
+        
          examDate : req.body.examDate,
          image : req.body.image,
-         
-         
-         
         });
-            const saveduser = await examuser.save();
+        const saveduser = await examuser.save();
             
-
-           res.render("../views/print", saveduser);
+        res.render("../views/print", saveduser);
             //  console.log(saveduser)
 
-        }catch (err){
+        }catch (err){a
             console.log('error', err)
             res.status(400).json({message : "error"})
             
@@ -170,9 +196,6 @@ res.cookie("auth_token", token, {
     httpOnly: true })
 
 res.redirect('/index/home/');
-
-
-
 //res.send('logged in')
 });
 
@@ -182,7 +205,31 @@ router.get('/logout', async (req, res) => {
     res.cookie("details", " ", {maxAge: 1});
     res.redirect('/')
 
+})
+
+router.get('/allusers', async (req, res) => {
+    const users =  await User.find()
+    res.status(200).json({
+        users
+    })
 
 })
 
+router.get('/getsubjects/:id', async (req, res) => {
+    const id = req.params.id
+    const user = await User.findOne({ userId: id })
+    if (!user){
+        return res.status(404).json({status: false})
+    }
+    
+    const subject = await Examuser.findOne({ userId: id })
+    console.log(subject)
+    res.status(200).json({
+        status: true,
+        subjects : subject.subject,
+    })
+
+
+
+})
 module.exports = router;

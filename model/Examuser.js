@@ -72,60 +72,9 @@ const examUserSchema = new mongoose.Schema({
         
     },
 
-    sub1 : {
-        type: String,
-        
-        min : 1,
-        max : 255
-    },
-    sub2 : {
-        type: String,
-        
-        min : 1,
-        max : 255
-
-
-    },
-    sub3: {
-        type: String,
-       
-        min  : 1,
-        max : 255
-
-    },
-
-    sub4 : {
-        type: String,
-        
-        min : 1,
-        max : 255
-    },
-
-    sub5 : {
-        type: String,
-        
-        min : 1,
-        max : 255
-    },
-    sub6 : {
-        type: String,
-        
-        min : 1,
-        max : 255
-    },
-    sub7 : {
-        type: String,
-        
-        min : 1,
-        max : 255 
-        
-    },
-    sub8 : {
-        type: String,
-        
-        min : 1,
-        max : 255 
-        
+    subject : {
+        type: [],
+     
     },
   
     examDate : {
