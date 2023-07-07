@@ -34,21 +34,15 @@ const upload = multer ({
 
 
 router.post('/register', upload, async (req, res)=> {
-// const {error} =  schema.validate(req.body)
 
 
 
 if (req.file.size > 5000000) return res.status(400).render("../views/register",{message : "file is too large"})
  
-// const mimetype =(req.file.mimetype);
-// if(mimetype == 'image/jpeg' || mimetype == 'image/jpg' ) return res.status(400).render("../views/register",{message : "Invalid file format"})
 const {error} = registerValidation(req.body);
-//if (error) return res.status(400).json({message : error.details[0].message})
 if (error) return res.status(400).render("../views/register",{message : error.details[0].message})
 
-// res.send(error.details[0].message)
 
-//CHECK FOR DUPLICATE 
 const emailExist = await User.findOne({ studentPhoneNumber: req.body.studentPhoneNumber});
 if (emailExist) return res.status(400).render("../views/register",{message : "Phone number Already Exists"})
 

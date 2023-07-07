@@ -39,6 +39,7 @@ app.use(bodyParser.json());
 app.use(cors())
 app.use(express.static(path.join(__dirname, 'public')))
 const authRoute = require('./routes/auth')  //importing the authentication route
+const pdfRoute = require('./routes/pdf');
 const homeRoute = require('./routes/home');
 const upload = multer()
 
@@ -46,6 +47,7 @@ const upload = multer()
 
 app.use('/api/user', authRoute)
 app.use('/index/home', homeRoute)
+app.use('/index/pdf', pdfRoute)
 
 app.get('/', (req, res)=> {
     res.render('index', null)

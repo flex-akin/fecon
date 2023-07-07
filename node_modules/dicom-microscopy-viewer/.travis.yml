@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - node
+
+sudo: false
+
+script:
+  - npm install
+  - npm run build
+  - npm test

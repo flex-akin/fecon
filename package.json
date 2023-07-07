@@ -17,6 +17,7 @@
     "config": "3.3.1",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
+    "dicom-microscopy-viewer": "^0.44.0",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.7",
     "express": "^4.18.0",
